@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ziki"
+  short_description: "Manage Ziki agents, workspaces, issues and activity"
+  default_prompt: "Use $ziki to show my workspaces and saved agents, then verify my selected connection."

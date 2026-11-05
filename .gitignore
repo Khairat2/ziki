@@ -61,3 +61,7 @@ next-env.d.ts
 # in node_modules/.cache instead, outside the inputs they hash.
 .test-output.txt
 .verify-output.txt
+
+# Generated local plugin artifacts
+/packages/ziki-codex/dist/
+/packages/ziki-codex/*.zip

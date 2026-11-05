@@ -2514,3 +2514,12 @@ model AgentPicture {
   updatedAt   DateTime @updatedAt
   agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
 }
+
+// Short-lived, encrypted Codex consent/code/account grants.
+model AgentOAuthGrant {
+  hash String @id
+  kind String
+  sealed String
+  expiresAt DateTime
+  @@index([expiresAt])
+}

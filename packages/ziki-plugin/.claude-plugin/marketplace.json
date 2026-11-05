@@ -1,0 +1,5 @@
+{
+  "name": "ziki-agents",
+  "owner": { "name": "Ziki" },
+  "plugins": [{ "name": "ziki", "source": "./", "description": "Ziki issues and workspace workflows for Claude Code" }]
+}

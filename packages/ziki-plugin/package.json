@@ -1,0 +1,9 @@
+{
+  "name": "@ziki/claude-code-plugin",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test test/*.test.mjs", "demo": "node scripts/demo.mjs", "demo:live": "node scripts/live-demo.mjs" },
+  "files": [".claude-plugin", "commands", "scripts", "README.md"]
+}

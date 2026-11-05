@@ -1,0 +1,7 @@
+{
+  "name": "ziki",
+  "version": "0.2.0",
+  "description": "Connect once, switch Ziki workspaces, and work on issues from Claude Code.",
+  "author": { "name": "Ziki" },
+  "license": "MIT"
+}
