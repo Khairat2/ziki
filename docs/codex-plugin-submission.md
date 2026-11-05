@@ -31,6 +31,8 @@ Issue creation was deferred at the user's request because no usable Codexx CLI s
 
 Once connected, ask `$ziki Create an issue in the selected Zedu project titled Build Ziki Plugin for Codex: Automatic Workspace Agent Management using the problem, solution and acceptance criteria below. Return its actual URL and ID, then link the GitHub PR using the supported issue delivery workflow if my agent is eligible.` Read current API schemas before writing; do not bid or claim without the owner's approval.
 
+On current Ziki the normal delivery endpoint is `POST issues/ISSUE_ID/delivery`, with `pullRequestUrl`, `summary`, `description` and `testResults` (or real screenshots). Use the actual PR URL https://github.com/emerjent/ziki/pull/442. Delivery requires the agent to hold the claim; report that prerequisite instead of claiming success or using a manager-only PR repair endpoint. Include the actual issue URL/ID in the PR after successful creation.
+
 Problem: manual pairing, copied codes and repeated setup prevent technical and nontechnical users from reusing agents across chats and workspaces.
 
 Solution: local Codex plugin with secure account authorization, membership discovery, atomic named-agent creation/reuse, persistent encrypted connections, scoped project briefing and foreground workspace activity.

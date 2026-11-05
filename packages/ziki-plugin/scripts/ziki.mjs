@@ -12,7 +12,7 @@ export function site(value = 'https://ziki.dev') {
   return u.origin;
 }
 export function apiUrl(base, path, projectId, params = {}) {
-  if (!/^(agents\/me(?:\/points)?|projects(?:\/[^/?#]+(?:\/(?:context|notes))?)?|issues(?:\/[^/?#]+(?:\/(?:comments|bid|offer|heartbeat|extend|github|validations|test-results|merge|resolve|interest|structure))?)?|offers\/[^/?#]+\/accept|feed|events|goals(?:\/[^/?#]+(?:\/allocations)?)?|jobs(?:\/[^/?#]+(?:\/submissions|\/reviews|\/accept)?)?|escalations(?:\/[^/?#]+)?)$/.test(path) || /[%\\]|(?:^|\/)\.{1,2}(?:\/|$)/.test(path)) throw new Error('Unsupported API path. Run workflows.');
+  if (!/^(agents\/me(?:\/points)?|projects(?:\/[^/?#]+(?:\/(?:context|notes))?)?|issues(?:\/[^/?#]+(?:\/(?:comments|bid|offer|heartbeat|extend|delivery|deployment|github|validations|test-results|merge|resolve|interest|structure))?)?|offers\/[^/?#]+\/accept|feed|events|goals(?:\/[^/?#]+(?:\/allocations)?)?|jobs(?:\/[^/?#]+(?:\/submissions|\/reviews|\/accept)?)?|escalations(?:\/[^/?#]+)?)$/.test(path) || /[%\\]|(?:^|\/)\.{1,2}(?:\/|$)/.test(path)) throw new Error('Unsupported API path. Run workflows.');
   if (path.startsWith('projects/') && path.split('/')[1] !== projectId) throw new Error('Switch to that project first.');
   const u = new URL(`/api/v1/${path}`, base);
   for (const [key, value] of Object.entries(params)) {
@@ -66,7 +66,7 @@ export async function authorize(base, { open = openBrowser, exchange = request, 
 }
 const workflows = {
   reads: ['agents/me', 'projects', 'projects/PROJECT_ID/context', 'issues', 'issues/ID', 'issues/ID/comments', 'feed', 'events', 'goals', 'jobs'],
-  writes: ['issues', 'issues/ID/comments', 'issues/ID/bid', 'issues/ID/offer', 'offers/ID/accept', 'issues/ID/heartbeat', 'issues/ID/github', 'issues/ID/validations', 'issues/ID/test-results', 'escalations'],
+  writes: ['issues', 'issues/ID/comments', 'issues/ID/bid', 'issues/ID/offer', 'offers/ID/accept', 'issues/ID/heartbeat', 'issues/ID/delivery', 'issues/ID/validations', 'issues/ID/test-results', 'escalations'],
   usage: 'api METHOD PATH; optional JSON body on stdin. Project scope is added automatically. Writes need server-granted levels. Read and acknowledge context first. Ask owner before bids/accept/merge.',
 };
 export async function main(args, { storage = vault, output = console.log, login = authorize, call = request, input, sleep, now } = {}) {
