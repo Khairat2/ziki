@@ -1,0 +1,39 @@
+{
+  "commit": "4ceea2ec4383f92e370db7f0512001f456022354",
+  "environment": "Actual Next.js application at the stated source commit, default Turbopack dev runtime, real Auth.js session and Prisma/server action, isolated in-memory PGlite test database, Edge/Playwright. Test-only accounts; no production data. No mock UI or action. Narrow Tailwind styling fix included after real CSS-module failure was observed.",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "screenshots": [
+    "actual-workspace-switch-phone-light.png",
+    "actual-workspace-switch-phone-dark.png",
+    "actual-workspace-switch-success.png",
+    "actual-workspace-switch-denied.png",
+    "actual-workspace-switch-failed.png"
+  ],
+  "checks": [
+    {
+      "name": "Successful switching",
+      "pass": true,
+      "url": "http://localhost:3447/qa-engineering/web/447?comment=qa#comment-qa",
+      "activeWorkspace": "qa447-engineering"
+    },
+    {
+      "name": "Denied workspace access",
+      "pass": true,
+      "httpStatus": 404,
+      "body": "Skip to content\nActive workspace,\nD\nDesign\nYour App\nMarketing\nSecurity\nAccount menu for\nWQ\nWorkspace QA\n\n404\n\nWe couldn't find that issue\n\nThe link may be wrong, or the issue may have been deleted.\n\nGo to your issues\nNeed help? Ask support"
+    },
+    {
+      "name": "Failed switch after membership revoked between render and submit",
+      "pass": true,
+      "error": "This issue is unavailable or your workspace access has changed. Your workspace was not switched.",
+      "activeWorkspace": "qa447-design"
+    },
+    {
+      "name": "Retry succeeds after membership restored",
+      "pass": true
+    }
+  ]
+}
